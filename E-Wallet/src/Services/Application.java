@@ -1,2 +1,5 @@
-package Services;public interface Application {
+package Services;
+
+public interface Application {
+    public void start();
 }
