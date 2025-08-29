@@ -63,7 +63,6 @@ public class Account {
 
         return account.userName.equals(userName) &&
                account.password.equals(password);
-
     }
 
     @Override

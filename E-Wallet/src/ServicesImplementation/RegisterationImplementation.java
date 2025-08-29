@@ -1,6 +1,7 @@
 package ServicesImplementation;
 
 import Model.Account;
+import Services.AccountValidationService;
 import Services.Registeration;
 import DataBase.DataBase;
 
@@ -97,6 +98,8 @@ public class RegisterationImplementation implements Registeration {
 
             if(Objects.nonNull(account)) {
                 System.out.println("You have successfully logged in");
+                WalletOperationsImplementation w = new WalletOperationsImplementation();
+                w.run(account);
             }else {
                 System.out.println("Invalid password");
                 invalidAttempt ++;
@@ -111,25 +114,39 @@ public class RegisterationImplementation implements Registeration {
                 }
             }
         }
-        WalletOperationsImplementation w = new WalletOperationsImplementation();
-        w.run(account);
     }
 
     public void signUp(){
         String userName , password , phoneNumber , name ;
+        AccountValidationService validator = new AccountValidationServiceImpl();
+
         System.out.println("Please enter your user name : ");
         userName = sc.nextLine();
         if(checkAccountAvailability(userName)) {
             System.out.println("This account is already in use");
             return;
-        } else {
-            System.out.println("Please enter your password : ");
-            password = sc.nextLine();
-            System.out.println("Please enter your phone number : ");
-            phoneNumber = sc.nextLine();
-            System.out.println("Please enter your name : ");
-            name = sc.nextLine();
+        } else if (!validator.isUserNameValid(userName)) {
+            System.out.println("Invalid username! Must start with uppercase and be at least 3 characters.");
+            return;
         }
+
+        System.out.println("Please enter your password : ");
+        password = sc.nextLine();
+        while (!validator.isPasswordValid(password)) {
+            System.out.println("Invalid password! Must contain uppercase, lowercase, number, special char, and be >= 10 chars.");
+            password = sc.nextLine();
+        }
+
+        System.out.println("Please enter your phone number : ");
+        phoneNumber = sc.nextLine();
+        while (!validator.isPhoneNumberValid(phoneNumber)) {
+            System.out.println("Invalid phone number! Must start with 20 and be 12 digits.");
+            phoneNumber = sc.nextLine();
+        }
+
+        System.out.println("Please enter your name : ");
+        name = sc.nextLine();
+
         Account account = new Account();
         account.setUserName(userName);
         account.setPassword(password);
@@ -139,8 +156,8 @@ public class RegisterationImplementation implements Registeration {
         db.AddAccount(account);
         this.accounts = db.getAllAccounts();
 
-
         WalletOperationsImplementation w = new WalletOperationsImplementation();
         w.run(account);
     }
+
 }
