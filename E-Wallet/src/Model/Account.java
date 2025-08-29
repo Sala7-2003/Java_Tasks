@@ -7,14 +7,6 @@ public class Account {
     String userName;
     String password;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getBalance() {
         return balance;
     }
@@ -67,9 +59,9 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account Details : Name=" + name
-                + ", Balance=" + balance +
-                ", PhoneNumber=" + phoneNumber +
-                ", UserName=" + userName;
+        return "Account Details : " +
+                "UserName = " + userName +
+                 " Balance = " + balance +
+                ", PhoneNumber = "  + phoneNumber + ", Password = " + password;
     }
 }

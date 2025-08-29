@@ -12,4 +12,8 @@ public interface AccoountOperations {
 
     public void showDetails(Account account) ;
 
+    public void changePassword(Account account) ;
+
+    public void removeAccount(Account account) ;
+
 }

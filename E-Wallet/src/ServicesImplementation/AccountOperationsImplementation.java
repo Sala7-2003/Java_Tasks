@@ -138,6 +138,27 @@ public class AccountOperationsImplementation implements AccoountOperations {
         }
         WalletOperationsImplementation w = new WalletOperationsImplementation();
         w.run(account);
+    }
+
+    public void removeAccount(Account account) {
+        DataBase db = DataBase.getInstance();
+        db.getAllAccounts().removeIf(acc -> acc.equals(account));
+    }
+
+
+    public void changePassword(Account account) {
+        DataBase db = DataBase.getInstance();
+        // get the account from list
+        for (Account acc : db.getAllAccounts()) {
+            if (acc.equals(account)){
+                db.updateAccountPassword(acc);
+            }
+        }
+        WalletOperationsImplementation w = new WalletOperationsImplementation();
+        w.run(account);
+
+
 
     }
+
 }

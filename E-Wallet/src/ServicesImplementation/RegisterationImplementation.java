@@ -144,14 +144,14 @@ public class RegisterationImplementation implements Registeration {
             phoneNumber = sc.nextLine();
         }
 
-        System.out.println("Please enter your name : ");
-        name = sc.nextLine();
+//        System.out.println("Please enter your name : ");
+//        name = sc.nextLine();
 
         Account account = new Account();
         account.setUserName(userName);
         account.setPassword(password);
         account.setPhoneNumber(phoneNumber);
-        account.setName(name);
+//        account.setName(name);
         account.setBalance(0D);
         db.AddAccount(account);
         this.accounts = db.getAllAccounts();

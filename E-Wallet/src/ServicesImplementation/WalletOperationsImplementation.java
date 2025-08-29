@@ -20,7 +20,7 @@ public class WalletOperationsImplementation implements WalletOperations {
         System.out.println("Enter Your" +
                 " Choice :\n" + "1- Deposit\n" +
                 "2- Withdraw\n3- Transfer\n" + "4- Show Details\n"+
-                "5- Log Out\n");
+                "5- Log Out\n" + "6- Change Password\n" + "7- Remove Account\n");
         char c = sc.nextLine().charAt(0);
         switch (c){
             case '1':
@@ -39,9 +39,23 @@ public class WalletOperationsImplementation implements WalletOperations {
                                 ApplicationImplementation a = new ApplicationImplementation();
                                 a.start();
                                 break;
+                                case '6':
+                                    changePassword(account);
+                                    break;
+                                    case '7':
+                                        removeAccount(account);
+                                        break;
             default:
                 System.out.println("Invalid Choice");
         }
+    }
+
+    public void removeAccount(Account account){
+        accountServices.removeAccount(account);
+    }
+
+    public void changePassword(Account account) {
+        accountServices.changePassword(account);
     }
 
     @Override
