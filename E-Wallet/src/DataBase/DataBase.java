@@ -1,33 +1,10 @@
 package DataBase;
 
 import Model.Account;
-
 import java.util.ArrayList;
-import java.util.Objects;
 
-//public class DataBase {
-//
-//    private ArrayList<Account> accounts = new ArrayList<>();
-//
-////    public DataBase() {
-////        accounts = new ArrayList<>();
-////    }
-//
-//    public void AddAccount(Account account) {
-//        if (!Objects.isNull(account)) {
-//            this.accounts.add(account);
-//            System.out.println("Account added successfully");
-//        }
-//    }
-//
-//    public void RemoveAccount(Account account) {
-//        this.accounts.remove(account);
-//    }
-//
-//    public ArrayList<Account> getAllAccounts() {
-//        return this.accounts;
-//    }
-//}
+// singelton pattern to make just one object !
+
 public class DataBase {
     private static DataBase instance;
     private ArrayList<Account> accounts;
@@ -52,5 +29,15 @@ public class DataBase {
 
     public ArrayList<Account> getAllAccounts() {
         return accounts;
+    }
+
+    public void updateAccount(Account account) {
+        if (account != null) {
+            for(Account acc : accounts) {
+                if(acc.getUserName().equals(account.getUserName())) {
+                    acc.setBalance(account.getBalance());
+                }
+            }
+        }
     }
 }

@@ -20,7 +20,15 @@ public class Account {
     }
 
     public void setBalance(double balance) {
-        this.balance += balance;
+        this.balance = balance;
+    }
+
+    public void credit(double amount) {
+        this.balance += amount;
+    }
+
+    public void debit(double amount) {
+        this.balance -= amount;
     }
 
     public String getPhoneNumber() {

@@ -16,7 +16,10 @@ public class WalletOperationsImplementation implements WalletOperations {
 
 
     public void run(Account account){
-        System.out.println("Enter Your Choice :" + "1- Deposit\n2- Withdrawal\n3- Transfer\n" +
+
+        System.out.println("Enter Your" +
+                " Choice :\n" + "1- Deposit\n" +
+                "2- Withdrawal\n3- Transfer\n" +
                 "4- Exit\n");
         char c = sc.nextLine().charAt(0);
         switch (c){
@@ -32,11 +35,9 @@ public class WalletOperationsImplementation implements WalletOperations {
                         case '4':
                             ApplicationImplementation a = new ApplicationImplementation();
                             a.start();
-//                            System.exit(1);
             default:
                 System.out.println("Invalid Choice");
         }
-
     }
 
     @Override
@@ -52,5 +53,9 @@ public class WalletOperationsImplementation implements WalletOperations {
     @Override
     public void transfer( Account account) {
         accountServices.transfer(account);
+    }
+
+    public void showDetails(Account account){
+        accountServices.showDetails(account);
     }
 }

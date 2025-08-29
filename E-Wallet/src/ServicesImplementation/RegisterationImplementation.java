@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class RegisterationImplementation implements Registeration {
     Scanner sc = new Scanner(System.in);
-    DataBase db = DataBase.getInstance();  // ✅ only way to get it
+    DataBase db = DataBase.getInstance();  // only way to get it
 
     private ArrayList<Account> accounts ;
     private int invalidAttempt ;
@@ -41,17 +41,20 @@ public class RegisterationImplementation implements Registeration {
     }
 
     @Override
-    public Account checkAccountAvailability(Account account) {
+    public Account findAccountByUserName(String userName ) {
+        accounts = db.getAllAccounts();
         for(Account a : accounts){
-            if(a.getUserName().equals(account.getUserName())){
-                return account;
+            if(a.getUserName().equals(userName)){
+                return a;
             }
         }
         return null;
     }
 
+
     @Override
     public Account checkPasswordMatching(String userName , String password){
+        accounts = db.getAllAccounts();
 
         for(Account a : accounts){
             if(a.getUserName().equals(userName)){
@@ -62,6 +65,7 @@ public class RegisterationImplementation implements Registeration {
         }
         return null;
     }
+
 
     public void signIn(){
 
