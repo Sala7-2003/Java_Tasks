@@ -1,1 +1,1 @@
-This folder mainly will contain all the db tasks , taking into consideration that I am some kind late because of certain circumstances !
+This folder mainly will contain all the db tasks !
