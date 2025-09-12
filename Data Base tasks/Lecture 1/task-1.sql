@@ -1,0 +1,3 @@
+CREATE TABLE Doctor (
+id DEFAULT 
+)
