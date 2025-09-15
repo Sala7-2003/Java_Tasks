@@ -1,0 +1,17 @@
+CREATE TABLE ORDERS (
+    STATUS  VARCHAR2(50)
+);
+
+INSERT INTO ORDERS VALUES('P');
+
+SELECT * FROM ORDERS;
+
+
+SELECT STATUS , DECODE ( STATUS ,
+'P' , 'PENDING',
+'S' , 'Shipped',
+'D' , 'DELIVERED',
+'OTHER') AS STATUS 
+FROM ORDERS ;
+
+-- both tasks 5 and 6 are the same

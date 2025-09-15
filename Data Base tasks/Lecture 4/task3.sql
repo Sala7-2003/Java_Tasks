@@ -1,0 +1,7 @@
+SELECT TO_CHAR(sysdate , 'DD-MON-yyyy') FROM dual;
+
+SELECT TO_CHAR(sysdate , 'MONTH - YY') FROM dual ;
+
+SELECT TO_CHAR(1212344560.73, '9,999,999,999.99') trans FROM dual;
+
+SELECT TO_CHAR(1212344560.73, '$9,999,999,999.99') trans FROM dual;
