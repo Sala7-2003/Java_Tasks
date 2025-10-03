@@ -1,0 +1,54 @@
+/* General Page Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef2f7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    width: 450px;
+}
+
+/* Success Message Rectangle */
+.message-box {
+    background-color: #eafaf1;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.message-box h2 {
+    color: #28a745;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Home Button */
+a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+a:hover {
+    background-color: #0056b3;
+}

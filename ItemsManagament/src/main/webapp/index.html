@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Demo</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* dark navy */
+      --card:#0b1220;
+      --accent:#6ee7b7; /* mint */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#071025 0%, #0f1724 100%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:2rem;
+      color:#e6eef6;
+    }
+
+    .container{
+      width:100%;
+      max-width:920px;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:2rem;
+      align-items:center;
+    }
+
+    .hero{
+      padding:2.5rem;
+      background:linear-gradient(135deg, rgba(110,231,183,0.06), rgba(99,102,241,0.04));
+      border-radius:16px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .hero h1{margin:0 0 .5rem;font-size:clamp(22px,3vw,28px)}
+    .hero p{margin:0;color:var(--muted);line-height:1.6}
+
+    .card{
+      background:linear-gradient(180deg,var(--card), rgba(12,17,28,0.85));
+      padding:2rem;
+      border-radius:14px;
+      box-shadow: 0 6px 22px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    form{display:flex;flex-direction:column;gap:1rem}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input[type="text"], input[type="password"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:var(--glass);
+      color:inherit;
+      outline:none;
+      font-size:15px;
+    }
+    input[type="email"]:focus, input[type="password"]:focus{box-shadow:0 0 0 4px rgba(110,231,183,0.06)}
+
+    .row{display:flex;align-items:center;justify-content:space-between}
+    .checkbox{
+      display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)
+    }
+    .checkbox input{width:16px;height:16px}
+
+    .btn{
+      border:0;padding:12px 14px;border-radius:10px;font-weight:600;cursor:pointer;font-size:15px;
+      background:linear-gradient(90deg,var(--accent), #60a5fa);
+      color:#04201a;
+      box-shadow: 0 8px 18px rgba(99,102,241,0.12);
+    }
+
+    .muted-link{color:var(--muted);text-decoration:none;font-size:14px}
+    .signup{display:block;text-align:center;margin-top:12px;color:var(--muted);font-size:14px}
+    .signup a{color:var(--accent);text-decoration:none;font-weight:600}
+
+    .foot-note{margin-top:8px;font-size:13px;color:var(--muted);}
+
+    @media (max-width:880px){
+      .container{grid-template-columns:1fr;}
+      .hero{order:2}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+   
+    <div class="card" aria-labelledby="login-title">
+      <h2 id="login-title" style="margin:0 0 8px 0">Sign in</h2>
+      
+      <form id="login-form" autocomplete="on" method = "post" action = "UserService">
+      
+       <input type="hidden" name="action" value="signin" >
+  <div>
+    <label for="uName">User-Name</label>
+    <input id="uName" type="text" name="uName" placeholder="Enter your username" required />
+  </div>
+
+  <div>
+    <label for="password">Password</label>
+    <input id="password" type="password" name="password" placeholder="Enter your password" required />
+  </div>
+
+  <div class="row">
+    <label class="checkbox"><input id="remember" type="checkbox" name="remember" /> Remember me</label>
+    <a class="muted-link" href="#forgot">Forgot Password?</a>
+  </div>
+
+  <button type="submit" class="btn">Log in</button>
+
+  <div class="signup">Not registered yet? <a href="signUp.html">Create an account</a></div>
+</form>
+
+
+      <div id="msg" style="margin-top:12px;font-size:14px;color:var(--muted)"></div>
+    </div>
+  </div>
+</body>
+</html>

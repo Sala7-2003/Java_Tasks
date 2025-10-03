@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+    <link rel="stylesheet" href="css/style2.css">
+
+</head>
+<body>
+<div class="form-container">
+    <h2>Add New Item</h2>
+    <form action="ItemController" method="post">
+        <label for="name">Item Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter item name" required>
+
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" step="0.01" placeholder="Enter item price" required>
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter item quantity" required>
+
+        <label for="details">Details</label>
+        <textarea id="details" name="details" rows="4" placeholder="Enter item details"></textarea>
+        
+        <input type="hidden"  name="action" value ="add">
+
+        <button type="submit">Add Item</button>
+    </form>
+</div>
+</body>
+</html>
